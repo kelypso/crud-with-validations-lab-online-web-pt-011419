@@ -7,4 +7,8 @@ class Song < ApplicationRecord
     s.validates :release_year, presence: true
     s.validates :release_year, numericality: { less_than_or_equal_to: Date.today.year }
   end
+
+  def released?
+    released == true
+  end
 end
