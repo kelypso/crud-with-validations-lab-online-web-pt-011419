@@ -1,7 +1,7 @@
 class Song < ApplicationRecord
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: true, length: {minimum: 1}
   validates :released, inclusion: { in: [true, false] }
-  validates :artist_name, presence: true
+  validates :artist_name, presence: true, length: {minimum: 1}
 
   with_options if: :released do |s| # not required, but if present, validates...
     s.validates :release_year, presence: true
